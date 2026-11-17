@@ -1,0 +1,5 @@
+# Frontend (Streamlit Community Cloud). No scikit-learn / model needed here.
+# streamlit already brings pandas + numpy.
+streamlit==1.67.0
+plotly==7.1.0
+requests==2.34.2

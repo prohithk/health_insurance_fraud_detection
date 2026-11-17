@@ -1,0 +1,18 @@
+# Optional Render Blueprint. You can ignore this file and create the service by hand in the dashboard
+# (same settings, see README). Blueprint: Render dashboard -> New -> Blueprint -> pick this repo.
+services:
+  - type: web
+    name: fraud-detection-api
+    runtime: python
+    region: singapore          # closest Render region to India
+    plan: free                 # if the service runs out of memory (512 MB), change to: standard (2 GB)
+    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn fastapi_app:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    envVars:
+      - key: API_KEY
+        generateValue: true    # Render creates a random key; copy it into the Streamlit secrets
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: MALLOC_ARENA_MAX  # keeps memory use lower
+        value: "2"
