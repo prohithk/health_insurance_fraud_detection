@@ -211,15 +211,15 @@ def select_with_unknown(label, column):
 # --------------------------------------------------------------------------------------
 st.title("🏥 Health Insurance Fraud Detection")
 
-with st.sidebar:
-    st.header("About the model")
-    st.write(f"**{info['model_name']}**")
-    metrics = info.get("test_set_metrics") or {}
-    if metrics:
-        st.caption("Test-set results")
-        st.table({name: f"{value:.3f}" for name, value in metrics.items()})
-    st.caption("Decision-support aid for **prioritising claims for review**. "
-               "Never use it alone to reject a claim or accuse anyone of fraud.")
+# with st.sidebar:
+#     st.header("About the model")
+#     st.write(f"**{info['model_name']}**")
+#     metrics = info.get("test_set_metrics") or {}
+#     if metrics:
+#         st.caption("Test-set results")
+#         st.table({name: f"{value:.3f}" for name, value in metrics.items()})
+#     st.caption("Decision-support aid for **prioritising claims for review**. "
+#                "Never use it alone to reject a claim or accuse anyone of fraud.")
 
 # --------------------------------------------------------------------------------------
 # Form
